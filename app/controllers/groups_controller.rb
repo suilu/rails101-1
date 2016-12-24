@@ -50,6 +50,9 @@ class GroupsController < ApplicationController
     else
       flash[:warning] = "你已经是本讨论版成员了！"
     end
+    
+    redirect_to group_path(@group)
+  end
 
     def quit
       @group = Group.find(params[:id])
@@ -78,4 +81,4 @@ private
     params.require(:group).permit(:title, :description)
   end
 
-end
+ end
